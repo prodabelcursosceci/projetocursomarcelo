@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::view('/welcome','welcome');
+Route::redirect('/welcome2','/welcome');
+
 Route::get('/about', function () {
     return "Essa aplicação é o primeiro teste do curso de laravel da turma de 09/09/2019 à 13/09/2019";
 });
@@ -23,6 +26,8 @@ Route::get('/phpinfo', function () {
     phpinfo();
 });
 
-Route::get('/helloworld', "TesteController@index");
+Route::get('/index1', "TesteController@index");
 
-Route::get('/helloworld/{nome}/{idade?}', "TesteController@index2");
+Route::post('/index1', "TesteController@indexPost");
+
+Route::get('/index2/{nome}/{idade?}', "TesteController@index2");
