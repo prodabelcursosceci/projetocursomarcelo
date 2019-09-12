@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\Validator;
 
 class TesteController extends Controller
 {
+    // 2ª maneira de chamar uma middleware
+    public function __construct() 
+    {
+        $this->middleware('checkage');
+        $this->middleware('throttle:1,1');
+    }
+
+
+
     # Passando parâmetros: 1ª maneira
     public function index(Request $req)
     {
@@ -41,4 +50,5 @@ class TesteController extends Controller
         
         return "Informação postada! Telefone: $req->telefone";
     }
+
 }

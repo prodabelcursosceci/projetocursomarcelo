@@ -26,8 +26,14 @@ Route::get('/phpinfo', function () {
     phpinfo();
 });
 
-Route::get('/index1', "TesteController@index");
+// 1ª maneira de chamar uma middleware
+//Route::middleware('checkage')->group(function() {
+    Route::get('/index1', "TesteController@index"); 
+    Route::post('/index1', "TesteController@indexPost");    
+    Route::get('/index2/{nome}/{idade?}', "TesteController@index2");
+//});
 
-Route::post('/index1', "TesteController@indexPost");
 
-Route::get('/index2/{nome}/{idade?}', "TesteController@index2");
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
