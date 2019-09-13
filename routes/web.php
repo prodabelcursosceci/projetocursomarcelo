@@ -37,3 +37,5 @@ Route::get('/phpinfo', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('cidades','CidadeController');
